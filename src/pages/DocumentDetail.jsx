@@ -7,7 +7,8 @@ import DownloadButton from '../components/common/DownloadButton.jsx'
 import EmptyState from '../components/common/EmptyState.jsx'
 import { getDocumentById } from '../hooks/useDocuments.js'
 import { formatDate } from '../utils/formatDate.js'
-import { fileExists } from '../utils/fileUtils.js'
+//import { fileExists } from '../utils/fileUtils.js'
+import FilePreview from '../components/common/FilePreview.jsx'
 
 function PdfPreview({ url }) {
   const [available, setAvailable] = useState(null)
@@ -37,7 +38,13 @@ export default function DocumentDetail() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6">
-      <Breadcrumb items={[{ label: 'Trang chủ', to: '/' }, { label: 'Tất cả tài liệu', to: '/documents' }, { label: doc.name }]} />
+      <Breadcrumb
+        items={[
+          { label: "Trang chủ", to: "/" },
+          { label: "Tất cả tài liệu", to: "/documents" },
+          { label: doc.name },
+        ]}
+      />
       <div className="card p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
           <FileTypeIcon type={doc.fileType} size="lg" />
@@ -46,26 +53,27 @@ export default function DocumentDetail() {
             <p className="mt-2 max-w-prose text-slate-600">{doc.description}</p>
           </div>
           <div className="flex gap-2">
-            <button className="btn-outline" onClick={() => navigate(-1)}><ArrowLeft className="h-4 w-4" />Quay lại</button>
+            <button className="btn-outline" onClick={() => navigate(-1)}>
+              <ArrowLeft className="h-4 w-4" />
+              Quay lại
+            </button>
             <DownloadButton document={doc} />
           </div>
         </div>
         <dl className="mt-6 grid gap-x-6 gap-y-4 border-t border-slate-100 pt-6 sm:grid-cols-2 lg:grid-cols-4">
           {info.map(([label, value]) => (
-            <div key={label}><dt className="text-sm text-slate-500">{label}</dt><dd className="mt-0.5 font-medium text-slate-900">{value}</dd></div>
+            <div key={label}>
+              <dt className="text-sm text-slate-500">{label}</dt>
+              <dd className="mt-0.5 font-medium text-slate-900">{value}</dd>
+            </div>
           ))}
         </dl>
       </div>
 
       <section className="mt-6">
-        <h2 className="mb-3 text-lg font-semibold text-slate-900">{doc.fileType === 'PDF' ? 'Xem trước' : 'Thông tin file'}</h2>
-        {doc.fileType === 'PDF' ? <PdfPreview url={doc.fileUrl} /> : (
-          <div className="card flex items-center gap-4 p-5">
-            <FileTypeIcon type={doc.fileType} size="lg" />
-            <div><p className="font-medium text-slate-900">{doc.fileName}</p><p className="text-sm text-slate-500">Tệp {doc.fileType} • {doc.fileSize}. Tải xuống để xem nội dung.</p></div>
-          </div>
-        )}
+        <h2 className="mb-3 text-lg font-semibold text-slate-900">Xem trước</h2>
+        <FilePreview doc={doc} />
       </section>
     </div>
-  )
+  );
 }
