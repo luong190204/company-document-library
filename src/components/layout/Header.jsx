@@ -4,10 +4,11 @@ import { Menu, X, LifeBuoy, Library } from 'lucide-react'
 import SearchBar from '../common/SearchBar.jsx'
 
 const navItems = [
-  { to: '/', label: 'Trang chủ', end: true },
-  { to: '/documents', label: 'Tất cả tài liệu' },
-  { to: '/documents#categories', label: 'Danh mục tài liệu', hash: true },
-]
+  { to: "/", label: "Trang chủ", end: true },
+  { to: "/documents", label: "Tất cả tài liệu" },
+  //{ to: "/documents#categories", label: "Danh mục tài liệu", hash: true },
+  { to: "/guides", label: "Hướng dẫn kỹ thuật" },
+];
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -40,7 +41,8 @@ export default function Header() {
           <nav className="flex flex-col">
             <NavLink to="/" end className={linkClass}>Trang chủ</NavLink>
             <NavLink to="/documents" className={linkClass}>Tất cả tài liệu</NavLink>
-            <a href="/#categories" className="rounded-lg px-3 py-2 text-sm font-medium text-slate-600">Danh mục tài liệu</a>
+            <NavLink to="/guides" className={linkClass}>Hướng dẫn kỹ thuật</NavLink>
+            {/* <a href="/#categories" className="rounded-lg px-3 py-2 text-sm font-medium text-slate-600">Danh mục tài liệu</a> */}
             <a href="mailto:support@congty.vn" className="rounded-lg px-3 py-2 text-sm font-medium text-slate-600">Liên hệ hỗ trợ</a>
           </nav>
         </div>

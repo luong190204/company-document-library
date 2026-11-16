@@ -1,4 +1,4 @@
-import { categories } from './categories.js'
+import { categories } from "./categories.js";
 
 // [mã, tên, mô tả, categoryId, định dạng, dung lượng, phiên bản, lượt tải, ngày tạo, ngày cập nhật]
 const rows = [
@@ -31,8 +31,20 @@ const rows = [
     "Biên bản hoàn thành đưa vào sử dụng",
     "Mẫu biên bản xác nhận hoàn thành và đưa vào sử dụng.",
     1,
-    "DOCX",
+    "BB-HTĐVSD.docx",
     "51,5 KB",
+    "1.1",
+    275,
+    "2026-11-16",
+    "2026-11-16",
+  ],
+  [
+    "BBNT-004",
+    "Biên bản nghiệm thu Vincom",
+    "Mẫu biên bản nghiệm thu của Vincom.",
+    1,
+    "BBNT-Vincom.xlsx",
+    "660 KB",
     "1.1",
     275,
     "2026-11-16",
@@ -124,7 +136,7 @@ const rows = [
   ],
 ];
 
-const extensions = { PDF: 'pdf', DOCX: 'docx', XLSX: 'xlsx' }
+const extensions = { PDF: "pdf", DOCX: "docx", XLSX: "xlsx" };
 
 export const documents = rows.map(
   (
@@ -142,7 +154,7 @@ export const documents = rows.map(
     ],
     index,
   ) => {
-    const ext = fileName.split('.').pop().toLowerCase();
+    const ext = fileName.split(".").pop().toLowerCase();
     return {
       id: index + 1,
       code,
