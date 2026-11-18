@@ -134,6 +134,30 @@ const rows = [
     "2026-11-16",
     "2026-11-16",
   ],
+  [
+    "BBHU-003",
+    "Báo cáo công cụ dụng cụ KTV",
+    "Mẫu báo cáo kiểm kê công cụ dụng cụ của kỹ thuật viên.",
+    8,
+    "bao_cao_CCDC_KTV.xlsx",
+    "17,2 KB",
+    "1",
+    0,
+    "2026-11-18",
+    "2026-11-18",
+  ],
+  [
+    "BBHU-004",
+    "Đánh giá hiệu quả công việc",
+    "Mẫu phiếu đánh giá hiệu quả công việc.",
+    8,
+    "danh_gia_hieu_qua_CV.xlsx",
+    "15,0 KB",
+    "1",
+    0,
+    "2026-11-18",
+    "2026-11-18",
+  ],
 ];
 
 const extensions = { PDF: "pdf", DOCX: "docx", XLSX: "xlsx" };
